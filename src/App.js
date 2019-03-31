@@ -18,8 +18,12 @@ class App extends Component {
             rel="noopener noreferrer"
           >
             Learn React
+
           </a>
+          <p>Hello Local Host</p>
+          
         </header>
+        
       </div>
     );
   }
