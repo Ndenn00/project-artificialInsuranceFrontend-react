@@ -1,6 +1,8 @@
 import React from "react"; 
+import {NavLink} from 'react-router-dom'
 
-class PersonalDetails extends React.Component {
+
+class Home extends React.Component {
   
     render() {
       return (
@@ -11,10 +13,13 @@ class PersonalDetails extends React.Component {
                 <div className="row center">
                     <h5 class="header col s12 light">Why not get some sweet insurance?</h5>
                 </div>
+                <div className="row center">
+                    <NavLink to="/quotepersonaldetails" className="btn-large waves-light orange">Start</NavLink>
+                </div>
             </div>
             
       );
     }
   }
 
-  export default PersonalDetails; 
+  export default Home; 
