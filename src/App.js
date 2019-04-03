@@ -6,6 +6,9 @@ import Home from './components/Home'
 import PersonalDetails from './components/PersonalDetails'
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom'; 
+import {withFormik} from 'formik';
+
+
 
 class App extends Component {
   render() {
@@ -21,4 +24,21 @@ class App extends Component {
   }
 }
 
-export default App;
+const FormikApp = withFormik({
+  mapPropsToValues({
+    firstname, lastname, address, postcode, email, phone}) {
+    return {
+      firstname: firstname || '',
+      lastname: lastname || '',
+      address: address || '', 
+      postcode: postcode || '', 
+      email: email || '', 
+      phone: phone || '', 
+    }
+  },
+  handleSubmit(values) {
+    console.log(values)
+  }
+})(App)
+
+export default FormikApp;
