@@ -33,6 +33,27 @@ const PersonalDetailsForm = props => {
         <div className="input-field center col s6">
           <Field type="text" name="phone" placeholder="Phone" />
         </div>
+        
+        <div className="input-field center col s6">
+    <select>
+      <optgroup label="team 1">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </optgroup>
+      <optgroup label="team 2">
+        <option value="3">Option 3</option>
+        <option value="4">Option 4</option>
+      </optgroup>
+    </select>
+    <label>Optgroups</label>
+  </div>
+
+
+        <div className="input-field center col s6">
+          <Field component="select" name="gender">
+            <option value="">Male</option> 
+          </Field>
+        </div>
       </div>
       <button class="btn waves-effect waves-light orange" type="submit" name="action">Submit</button>
       <br/>
