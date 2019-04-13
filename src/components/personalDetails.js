@@ -1,81 +1,91 @@
-import React from "react"; 
-import { Form, Field } from 'formik'
+import React from "react";
+import { Form, Field } from "formik";
 
 const IntroBanner = () => {
-  return(
-    <div className="row center">
-       <h2 className="header center orange-text">Personal Details</h2>
-       <h5 class="header col s12 light">Hello, you. Why not tell us about yourself?</h5>
+  return (
+    <div className="row center home-row">
+      <h2 className="header center orange-text">Personal Details</h2>
+      <h5 class="header col s12 light home-row">
+        Hello, you. Why not tell us about yourself?
+      </h5>
     </div>
-  )
-}
+  );
+};
 
 const PersonalDetailsForm = props => {
-  
   return (
     <Form className="container">
       <div className="row">
-        <div className="input-field center col s6">
-          <Field type="text" name="firstname" placeholder="First Name" />
+        <div className="six columns">
+          <label for="firstname">First Name</label>
+          <Field className="u-full-width" type="text" name="firstname" />
         </div>
-        <div className="input-field center col s6">
-          <Field type="text" name="lastname" placeholder="Last Name" />
-        </div>
-        <div className="input-field center col s6">
-          <Field type="text" name="address" placeholder="Address" />
-        </div>
-        <div className="input-field center col s6">
-          <Field type="text" name="postcode" placeholder="Postcode" />
-        </div>
-        <div className="input-field center col s6">
-          <Field type="email" name="email" placeholder="Email" />
-        </div>
-        <div className="input-field center col s6">
-          <Field type="text" name="phone" placeholder="Phone" />
-        </div>
-        
-        <div className="input-field center col s6">
-    <select>
-      <optgroup label="team 1">
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-      </optgroup>
-      <optgroup label="team 2">
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-      </optgroup>
-    </select>
-    <label>Optgroups</label>
-  </div>
 
+        <div className="six columns">
+          <label for="lastname">Last Name</label>
+          <Field className="u-full-width" type="text" name="lastname" />
+        </div>
+      </div>
 
-        <div className="input-field center col s6">
-          <Field component="select" name="gender">
-            <option value="">Male</option> 
+      <div className="row">
+        <div className="six columns">
+          <label for="address">Address</label>
+          <Field className="u-full-width" type="text" name="address" />
+        </div>
+
+        <div className="six columns">
+          <label for="postcode">Postcode</label>
+          <Field className="u-full-width" type="text" name="postcode" />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="six columns">
+          <label for="email">Email</label>
+          <Field className="u-full-width" type="email" name="email" />
+        </div>
+
+        <div className="six columns">
+          <label for="phone">Phone</label>
+          <Field className="u-full-width" type="text" name="phone" />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="six columns">
+          <label for="dob">Date of Birth</label>
+          <Field className="u-full-width" type="date" name="dob" />
+        </div>
+
+        <div className="six columns">
+          <label for="phone">Gender</label>
+          <Field className="u-full-width" component="select" name="gender">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Prefer Not To Say">Prefer not to say</option>
           </Field>
         </div>
       </div>
-      <button class="btn waves-effect waves-light orange" type="submit" name="action">Submit</button>
-      <br/>
-      <br/>
+
+      <button type="submit" name="action">
+        Submit
+      </button>
+      <br />
+      <br />
     </Form>
-  )
-} 
+  );
+};
 
 class PersonalDetails extends React.Component {
-    onSubmit(){
-        // TODO 
-        // SUBMIT FORM AND REDIRECT 
-    }
-  
-    render() {
-      return (
-       <div className="section no-pad-bot">
-          <IntroBanner/>
-          <PersonalDetailsForm/>
-       </div>
-      );
-    }
-  }
 
-  export default PersonalDetails; 
+  render() {
+    return (
+      <div className="section no-pad-bot">
+        <IntroBanner />
+        <PersonalDetailsForm />
+      </div>
+    );
+  }
+}
+
+export default PersonalDetails;

@@ -1,0 +1,38 @@
+.center{
+	text-align: center;
+}
+
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+    overflow: auto;
+}
+
+.home-row{
+	margin: 60px 0 50px 0;
+}
+
+.navbar{
+	text-align: center;
+	border-bottom: 3px #000000;
+}
+#nav {
+	margin: 20px 0 0 0;	
+}
+
+#nav ul li {
+	display: inline;
+	margin: 0 20px 0 0;
+	margin-top: inherit;
+	margin-bottom: 130px;
+	padding-top:  25%;
+}
+
+#nav a {
+	text-decoration: none;
+	color: #000000;
+}
+
+#nav a:hover {
+	text-decoration: underline;
+}
