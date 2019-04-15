@@ -3,7 +3,8 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import PersonalDetails from "./components/PersonalDetails";
+
+import MultipartForm from './components/MultipartForm'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withFormik } from "formik";
@@ -16,8 +17,8 @@ class App extends Component {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route
-            path="/quotepersonaldetails"
-            component={PersonalDetails}
+            path="/quote"
+            component={MultipartForm}
             exact
           />
          

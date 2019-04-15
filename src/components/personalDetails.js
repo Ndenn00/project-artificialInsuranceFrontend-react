@@ -66,10 +66,6 @@ const PersonalDetailsForm = props => {
           </Field>
         </div>
       </div>
-
-      <button type="submit" name="action">
-        Submit
-      </button>
       <br />
       <br />
     </Form>

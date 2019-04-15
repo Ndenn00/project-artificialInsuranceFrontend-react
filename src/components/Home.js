@@ -20,7 +20,7 @@ class Home extends React.Component {
         <div className="row center home-row">
           <div className="twelve columns">
           <NavLink
-            to="/quotepersonaldetails"
+            to="/quote"
             className="button">
             Start
           </NavLink>
