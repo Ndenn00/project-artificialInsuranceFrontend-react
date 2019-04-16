@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Field } from "formik";
 
 import PersonalDetails from "./PersonalDetails";
+import VehicleDetails from "./VehicleDetails";
 
 class MultpartForm extends React.Component {
   constructor(props) {
@@ -75,7 +76,7 @@ const Step2 = props => {
   if (props.currentStep != "2") {
     return null;
   }
-  return <h1>Yoo boyy</h1>;
+  return <VehicleDetails/>;
 };
 
 export default MultpartForm;

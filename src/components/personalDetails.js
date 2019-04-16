@@ -1,16 +1,8 @@
 import React from "react";
 import { Form, Field } from "formik";
 
-const IntroBanner = () => {
-  return (
-    <div className="row center home-row">
-      <h2 className="header center orange-text">Personal Details</h2>
-      <h5 class="header col s12 light home-row">
-        Hello, you. Why not tell us about yourself?
-      </h5>
-    </div>
-  );
-};
+import Banner from './Banner'; 
+
 
 const PersonalDetailsForm = props => {
   return (
@@ -73,11 +65,11 @@ const PersonalDetailsForm = props => {
 };
 
 class PersonalDetails extends React.Component {
-
+  
   render() {
     return (
-      <div className="section no-pad-bot">
-        <IntroBanner />
+      <div className="container">
+        <Banner header='Personal Details' blurb='Hello, you. Why not tell us about yourself?'  />
         <PersonalDetailsForm />
       </div>
     );
