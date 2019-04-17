@@ -40,7 +40,14 @@ const FormikApp = withFormik({
     year,
     miles,
     ownOrLease,
-    primaryUse
+    primaryUse,
+    lengthOfOwnership,
+    licenceNumber, 
+    yearsHeld,
+    noClaims, 
+    accidentWithinFiveYears,
+    cover
+
   }) {
     return {
       firstname: firstname || "",
@@ -58,7 +65,13 @@ const FormikApp = withFormik({
       year: year || "",
       miles: miles || "",
       ownOrLease: ownOrLease || "",
-      primaryUse: primaryUse || ""
+      primaryUse: primaryUse || "",
+      lengthOfOwnership: lengthOfOwnership ||"",
+      licenceNumber: licenceNumber || "",
+      yearsHeld: yearsHeld || "",
+      noClaims: noClaims || "", 
+      accidentWithinFiveYears: accidentWithinFiveYears || "",
+      cover : cover || []
     };
   },
   handleSubmit(values) {

@@ -1,11 +1,11 @@
 import React from "react";
-import { Form, Field } from "formik";
+import {Field } from "formik";
 
 import Banner from "./Banner";
 
 const VehicleDetailsForm = props => {
   return (
-    <Form className="container">
+    <div>
       <div className="row">
         <div className="six columns">
           <label for="vin">Vin Number</label>
@@ -45,17 +45,23 @@ const VehicleDetailsForm = props => {
       <div className="row">
         <div className="six columns">
           <label for="primaryUse">Primary Use</label>
-          <Field className="u-full-width" type="checkbox" name="primaryUse"/>
+          <Field component="select" className="u-full-width" name="primaryUse">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </Field>
         </div>
-
         <div className="six columns">
-          <label for="phone">Miles</label>
-          <Field className="u-full-width" type="text" name="miles" />
+          <label for="lengthOfOwnership">Length of Ownership</label>
+          <Field
+            className="u-full-width"
+            type="text"
+            name="lengthOfOwnership"
+          />
         </div>
       </div>
       <br />
       <br />
-    </Form>
+    </div>
   );
 };
 
