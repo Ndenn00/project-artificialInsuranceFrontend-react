@@ -11,7 +11,6 @@ import { withFormik } from "formik";
 import * as Yup from "yup";
 
 class App extends Component {
-
   render() {
     return (
       <BrowserRouter>
@@ -20,7 +19,9 @@ class App extends Component {
           <Route path="/" component={Home} exact />
           <Route
             path="/quote"
-            render={routeProps => (<MultipartForm {...routeProps}{...this.props} />)}
+            render={routeProps => (
+              <MultipartForm {...routeProps} {...this.props} />
+            )}
           />
         </Switch>
       </BrowserRouter>
@@ -28,7 +29,17 @@ class App extends Component {
   }
 }
 
-
+const validationSchema = Yup.object().shape({
+  firstname: Yup.string()
+    .min(2)
+    .required("Please enter your first name"),
+  lastname: Yup.string()
+    .min(2)
+    .required("Please enter a last name"),
+  address: Yup.string()
+    .min(2)
+    .required("Please enter an email")
+});
 
 const FormikApp = withFormik({
   mapPropsToValues({
@@ -80,9 +91,8 @@ const FormikApp = withFormik({
       cover: cover || []
     };
   },
-  validationSchema: Yup.object().shape({
-    firstname: Yup.string().min(10)
-  }),
+  validationSchema: validationSchema,
+  
   handleSubmit(values) {
     console.log(values);
   }
