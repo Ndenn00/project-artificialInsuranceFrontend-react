@@ -38,6 +38,9 @@ const validationSchema = Yup.object().shape({
     .required("Please enter a last name"),
   address: Yup.string()
     .min(2)
+    .required("Please enter an email"),
+  postcode: Yup.string()
+    .min(2)
     .required("Please enter an email")
 });
 
@@ -92,7 +95,7 @@ const FormikApp = withFormik({
     };
   },
   validationSchema: validationSchema,
-  
+
   handleSubmit(values) {
     console.log(values);
   }
