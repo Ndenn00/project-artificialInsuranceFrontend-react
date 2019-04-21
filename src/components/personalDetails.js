@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Field } from "formik";
+import { Field } from "formik";
 
 import Banner from "./Banner";
 
@@ -9,6 +9,7 @@ const PersonalDetailsForm = props => {
       <div className="row">
         <div className="six columns">
           <label for="firstname">First Name</label>
+          {props.errors.firstname &&  props.touched.firstname && <p>Error and touched</p>}
           <Field className="u-full-width" type="text" name="firstname" />
         </div>
 
@@ -61,18 +62,16 @@ const PersonalDetailsForm = props => {
   );
 };
 
-class PersonalDetails extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <Banner
-          header="Personal Details"
-          blurb="Hello, you. Why not tell us about yourself?"
-        />
-        <PersonalDetailsForm />
-      </div>
-    );
-  }
-}
+const PersonalDetails = props => {
+  return (
+    <div className="container">
+      <Banner
+        header="Personal Details"
+        blurb="Hello, you. Why not tell us about yourself?"
+      />
+      <PersonalDetailsForm {...props}/>
+    </div>
+  );
+};
 
 export default PersonalDetails;

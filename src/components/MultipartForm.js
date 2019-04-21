@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Field } from "formik";
+import { Form } from "formik";
 
 import PersonalDetails from "./PersonalDetails";
 import VehicleDetails from "./VehicleDetails";
@@ -9,9 +9,9 @@ import CoverDetails from "./CoverDetails";
 class MultpartForm extends React.Component {
   constructor(props) {
     super(props);
-    // Set the initial input values
+    
     this.state = {
-      currentStep: 1 // Default is Step 1
+      currentStep: 1 
     };
 
     this._next = this._next.bind(this);
@@ -39,7 +39,7 @@ class MultpartForm extends React.Component {
   render() {
     return (
       <Form className="container">
-        <Step1 currentStep={this.state.currentStep} />
+        <Step1 currentStep={this.state.currentStep} {...this.props}  />
         <Step2 currentStep={this.state.currentStep} />
         <Step3 currentStep={this.state.currentStep} />
         <Step4 currentStep={this.state.currentStep} />
@@ -51,7 +51,7 @@ class MultpartForm extends React.Component {
             _next={this._next}
           />
         ) : (
-          <SubmitButton />
+          <SubmitButton _prev={this._prev} />
         )}
       </Form>
     );
@@ -73,11 +73,12 @@ const NavButtons = ({ currentStep, _prev, _next }) => {
   );
 };
 
-const SubmitButton = ({ currentStep, _prev, _next }) => {
+const SubmitButton = ({ _prev }) => {
   return (
     <div className="container center">
       <div className="row">
         <div className="twelve columns">
+          <button onClick={_prev}>Previous</button>
           <input type="submit" />
         </div>
       </div>
@@ -86,28 +87,28 @@ const SubmitButton = ({ currentStep, _prev, _next }) => {
 };
 
 const Step1 = props => {
-  if (props.currentStep != "1") {
+  if (props.currentStep !== 1) {
     return null;
   }
-  return <PersonalDetails />;
+  return <PersonalDetails {...props} />;
 };
 
 const Step2 = props => {
-  if (props.currentStep != "2") {
+  if (props.currentStep !== 2) {
     return null;
   }
   return <VehicleDetails />;
 };
 
 const Step3 = props => {
-  if (props.currentStep != "3") {
+  if (props.currentStep !== 3) {
     return null;
   }
   return <PreviousInsuranceDetails />;
 };
 
 const Step4 = props => {
-  if (props.currentStep != "4") {
+  if (props.currentStep !== 4) {
     return null;
   }
   return <CoverDetails />;

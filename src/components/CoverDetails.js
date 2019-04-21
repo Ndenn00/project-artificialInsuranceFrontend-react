@@ -1,6 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, FieldArray } from "formik";
-import PropTypes from "prop-types";
+import {  Field } from "formik";
 
 import Banner from "./Banner";
 

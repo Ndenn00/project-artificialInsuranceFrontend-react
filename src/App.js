@@ -8,20 +8,27 @@ import MultipartForm from "./components/MultipartForm";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withFormik } from "formik";
+import * as Yup from "yup";
 
 class App extends Component {
+
   render() {
     return (
       <BrowserRouter>
         <Navbar />
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/quote" component={MultipartForm} exact />
+          <Route
+            path="/quote"
+            render={routeProps => (<MultipartForm {...routeProps}{...this.props} />)}
+          />
         </Switch>
       </BrowserRouter>
     );
   }
 }
+
+
 
 const FormikApp = withFormik({
   mapPropsToValues({
@@ -42,12 +49,11 @@ const FormikApp = withFormik({
     ownOrLease,
     primaryUse,
     lengthOfOwnership,
-    licenceNumber, 
+    licenceNumber,
     yearsHeld,
-    noClaims, 
+    noClaims,
     accidentWithinFiveYears,
     cover
-
   }) {
     return {
       firstname: firstname || "",
@@ -66,14 +72,17 @@ const FormikApp = withFormik({
       miles: miles || "",
       ownOrLease: ownOrLease || "",
       primaryUse: primaryUse || "",
-      lengthOfOwnership: lengthOfOwnership ||"",
+      lengthOfOwnership: lengthOfOwnership || "",
       licenceNumber: licenceNumber || "",
       yearsHeld: yearsHeld || "",
-      noClaims: noClaims || "", 
+      noClaims: noClaims || "",
       accidentWithinFiveYears: accidentWithinFiveYears || "",
-      cover : cover || []
+      cover: cover || []
     };
   },
+  validationSchema: Yup.object().shape({
+    firstname: Yup.string().min(10)
+  }),
   handleSubmit(values) {
     console.log(values);
   }
