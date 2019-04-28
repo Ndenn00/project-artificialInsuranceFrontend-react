@@ -3,14 +3,13 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-
-import * as regex from "./utility/Regex";
-
 import MultipartForm from "./components/MultipartForm";
+
+import {validationSchema} from './utility/ValidationSchema'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withFormik } from "formik";
-import * as Yup from "yup";
+
 
 class App extends Component {
   render() {
@@ -31,22 +30,9 @@ class App extends Component {
   }
 }
 
-const validationSchema = Yup.object().shape({
-  firstname: Yup.string()
-    .min(2, "First name must be at least two characters")
-    .required("First name is required"),
-  lastname: Yup.string()
-    .min(2, "Last name must be at least two characters")
-    .required("Last name is required"),
-  address: Yup.string()
-    .min(2, "Address not valid")
-    .required("Address is required"),
-  postcode: Yup.string()
-    .min(2, "Postcode is not valid")
-    .required("Postcode not valid"),
-  email: Yup.string().email("Not a valid email"),
-  phone: Yup.string().matches(regex.ukPhoneRegExp, "Phone number is not valid")
-});
+
+
+
 
 const FormikApp = withFormik({
   mapPropsToValues({
