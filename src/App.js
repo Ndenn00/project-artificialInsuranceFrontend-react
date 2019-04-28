@@ -31,17 +31,17 @@ class App extends Component {
 
 const validationSchema = Yup.object().shape({
   firstname: Yup.string()
-    .min(2)
-    .required("Please enter your first name"),
+    .min(2, "First name must be at least two characters")
+    .required("First name is required"),
   lastname: Yup.string()
     .min(2)
-    .required("Please enter a last name"),
+    .required("Last name must be at least two characters"),
   address: Yup.string()
     .min(2)
-    .required("Please enter an email"),
+    .required("Address not valid"),
   postcode: Yup.string()
     .min(2)
-    .required("Please enter an email")
+    .required("Postcode not valid")
 });
 
 const FormikApp = withFormik({

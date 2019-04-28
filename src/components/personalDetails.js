@@ -2,6 +2,19 @@ import React from "react";
 import { Field } from "formik";
 
 import Banner from "./Banner";
+import FormErrors from "./FormErrors";
+
+const PersonalDetails = props => {
+  return (
+    <div className="container">
+      <Banner
+        header="Personal Details"
+        blurb="Hello, you. Why not tell us about yourself?"
+      />
+      <PersonalDetailsForm {...props} />
+    </div>
+  );
+};
 
 const PersonalDetailsForm = props => {
   return (
@@ -9,13 +22,21 @@ const PersonalDetailsForm = props => {
       <div className="row">
         <div className="six columns">
           <label for="firstname">First Name</label>
-          {props.errors.firstname &&  props.touched.firstname && <p>Error and touched</p>}
+
           <Field className="u-full-width" type="text" name="firstname" />
+          <FormErrors
+            errors={props.errors.firstname}
+            touched={props.touched.firstname}
+          />
         </div>
 
         <div className="six columns">
           <label for="lastname">Last Name</label>
           <Field className="u-full-width" type="text" name="lastname" />
+          <FormErrors
+            errors={props.errors.lastname}
+            touched={props.touched.lastname}
+          />
         </div>
       </div>
 
@@ -23,11 +44,19 @@ const PersonalDetailsForm = props => {
         <div className="six columns">
           <label for="address">Address</label>
           <Field className="u-full-width" type="text" name="address" />
+          <FormErrors
+            errors={props.errors.address}
+            touched={props.touched.address}
+          />
         </div>
 
         <div className="six columns">
           <label for="postcode">Postcode</label>
           <Field className="u-full-width" type="text" name="postcode" />
+          <FormErrors
+            errors={props.errors.postcode}
+            touched={props.touched.postcode}
+          />
         </div>
       </div>
 
@@ -35,6 +64,10 @@ const PersonalDetailsForm = props => {
         <div className="six columns">
           <label for="email">Email</label>
           <Field className="u-full-width" type="email" name="email" />
+          <FormErrors
+            errors={props.errors.email}
+            touched={props.touched.email}
+          />
         </div>
 
         <div className="six columns">
@@ -58,18 +91,6 @@ const PersonalDetailsForm = props => {
           </Field>
         </div>
       </div>
-    </div>
-  );
-};
-
-const PersonalDetails = props => {
-  return (
-    <div className="container">
-      <Banner
-        header="Personal Details"
-        blurb="Hello, you. Why not tell us about yourself?"
-      />
-      <PersonalDetailsForm {...props}/>
     </div>
   );
 };
