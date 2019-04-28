@@ -16,9 +16,12 @@ export const validationSchema = Yup.object().shape({
     postcode: Yup.string()
       .matches(regex.ukPostcodeRegexp, "Postcode not valid")
       .required("Postcode not valid"),
-    email: Yup.string().email("Not a valid email"),
+    email: Yup.string().email("Not a valid email").required('Valid email is required') ,
     phone: Yup.string()
-      .matches(regex.ukPhoneRegExp, "Phone number is not valid")
+      .matches(regex.ukPhoneRegexp, "Phone number is not valid")
       .required("Phone is required"),
-    dob: Yup.date().max(maxDate, "You have to be at least 17 Years old")
+    dob: Yup.date().max(maxDate, "You have to be at least 17 Years old").required("Date of birth is required") ,
+    vin: Yup.string().matches(regex.vinRegexp, "Vin not valid").required('Vin is required'),
+    reg: Yup.string().matches(regex.registartionRegexp, "Registartion No. not valid").required("Registartion number required")
+
   });

@@ -18,7 +18,8 @@ class MultpartForm extends React.Component {
     this._prev = this._prev.bind(this);
   }
 
-  _next() {
+  _next(e) {
+    e.preventDefault();
     let currentStep = this.state.currentStep;
 
     currentStep = currentStep >= 3 ? 4 : currentStep + 1;
@@ -27,7 +28,8 @@ class MultpartForm extends React.Component {
     });
   }
 
-  _prev() {
+  _prev(e) {
+    e.preventDefault();
     let currentStep = this.state.currentStep;
 
     currentStep = currentStep <= 1 ? 1 : currentStep - 1;
@@ -40,7 +42,7 @@ class MultpartForm extends React.Component {
     return (
       <Form className="container">
         <Step1 currentStep={this.state.currentStep} {...this.props}  />
-        <Step2 currentStep={this.state.currentStep} />
+        <Step2 currentStep={this.state.currentStep} {...this.props}  />
         <Step3 currentStep={this.state.currentStep} />
         <Step4 currentStep={this.state.currentStep} />
 
@@ -97,7 +99,7 @@ const Step2 = props => {
   if (props.currentStep !== 2) {
     return null;
   }
-  return <VehicleDetails />;
+  return <VehicleDetails {...props}/>;
 };
 
 const Step3 = props => {

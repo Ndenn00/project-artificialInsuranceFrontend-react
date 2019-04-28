@@ -1,7 +1,18 @@
 import React from "react";
-import {Field } from "formik";
+import { Field } from "formik";
 
 import Banner from "./Banner";
+import FormErrors from "./FormErrors";
+
+
+const VehicleDetails = props => {
+  return (
+    <div className="container">
+      <Banner header="Vehicle Details" blurb="What about your car?" />
+      <VehicleDetailsForm {...props} />
+    </div>
+  );
+};
 
 const VehicleDetailsForm = props => {
   return (
@@ -10,11 +21,19 @@ const VehicleDetailsForm = props => {
         <div className="six columns">
           <label for="vin">Vin Number</label>
           <Field className="u-full-width" type="text" name="vin" />
+          <FormErrors
+            errors={props.errors.vin}
+            touched={props.touched.vin}
+          />
         </div>
 
         <div className="six columns">
           <label for="reg">Registration No.</label>
           <Field className="u-full-width" type="text" name="reg" />
+          <FormErrors
+            errors={props.errors.reg}
+            touched={props.touched.reg}
+          />
         </div>
       </div>
 
@@ -64,16 +83,5 @@ const VehicleDetailsForm = props => {
     </div>
   );
 };
-
-class VehicleDetails extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <Banner header="Vehicle Details" blurb="What about your car?" />
-        <VehicleDetailsForm />
-      </div>
-    );
-  }
-}
 
 export default VehicleDetails;

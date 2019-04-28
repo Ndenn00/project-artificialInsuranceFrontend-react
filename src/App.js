@@ -5,11 +5,10 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import MultipartForm from "./components/MultipartForm";
 
-import {validationSchema} from './utility/ValidationSchema'
+import { validationSchema } from "./utility/ValidationSchema";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withFormik } from "formik";
-
 
 class App extends Component {
   render() {
@@ -29,10 +28,6 @@ class App extends Component {
     );
   }
 }
-
-
-
-
 
 const FormikApp = withFormik({
   mapPropsToValues({
