@@ -73,6 +73,10 @@ const PersonalDetailsForm = props => {
         <div className="six columns">
           <label for="phone">Phone</label>
           <Field className="u-full-width" type="text" name="phone" />
+          <FormErrors
+            errors={props.errors.phone}
+            touched={props.touched.phone}
+          />
         </div>
       </div>
 

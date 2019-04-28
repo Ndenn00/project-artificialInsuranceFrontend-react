@@ -4,6 +4,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 
+import * as regex from "./utility/Regex";
+
 import MultipartForm from "./components/MultipartForm";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -34,14 +36,16 @@ const validationSchema = Yup.object().shape({
     .min(2, "First name must be at least two characters")
     .required("First name is required"),
   lastname: Yup.string()
-    .min(2)
-    .required("Last name must be at least two characters"),
+    .min(2, "Last name must be at least two characters")
+    .required("Last name is required"),
   address: Yup.string()
-    .min(2)
-    .required("Address not valid"),
+    .min(2, "Address not valid")
+    .required("Address is required"),
   postcode: Yup.string()
-    .min(2)
-    .required("Postcode not valid")
+    .min(2, "Postcode is not valid")
+    .required("Postcode not valid"),
+  email: Yup.string().email("Not a valid email"),
+  phone: Yup.string().matches(regex.ukPhoneRegExp, "Phone number is not valid")
 });
 
 const FormikApp = withFormik({
