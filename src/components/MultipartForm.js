@@ -43,7 +43,7 @@ class MultpartForm extends React.Component {
       <Form className="container">
         <Step1 currentStep={this.state.currentStep} {...this.props}  />
         <Step2 currentStep={this.state.currentStep} {...this.props}  />
-        <Step3 currentStep={this.state.currentStep} />
+        <Step3 currentStep={this.state.currentStep} {...this.props}  />
         <Step4 currentStep={this.state.currentStep} />
 
         {this.state.currentStep < 4 ? (
@@ -106,7 +106,7 @@ const Step3 = props => {
   if (props.currentStep !== 3) {
     return null;
   }
-  return <PreviousInsuranceDetails />;
+  return <PreviousInsuranceDetails {...props} />;
 };
 
 const Step4 = props => {

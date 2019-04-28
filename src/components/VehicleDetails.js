@@ -68,7 +68,7 @@ const VehicleDetailsForm = props => {
           </Field>
         </div>
         <div className="six columns">
-          <label for="lengthOfOwnership">Length of Ownership</label>
+          <label for="lengthOfOwnership">Length of Vehicle Ownership</label>
           <Field
             className="u-full-width"
             type="text"

@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import MultipartForm from "./components/MultipartForm";
+import Review from "./components/Review"
 
 import { validationSchema } from "./utility/ValidationSchema";
 
@@ -23,6 +24,7 @@ class App extends Component {
               <MultipartForm {...routeProps} {...this.props} />
             )}
           />
+          <Route path="/review" component={Review} exact />
         </Switch>
       </BrowserRouter>
     );
@@ -81,9 +83,10 @@ const FormikApp = withFormik({
   },
   validationSchema: validationSchema,
 
-  handleSubmit(values) {
-    console.log(values);
+  handleSubmit() {
+    
   }
+
 })(App);
 
 export default FormikApp;

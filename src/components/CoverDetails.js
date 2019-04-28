@@ -1,5 +1,5 @@
 import React from "react";
-import {  Field } from "formik";
+import { Field } from "formik";
 
 import Banner from "./Banner";
 
@@ -24,7 +24,7 @@ function Checkbox(props) {
               }
             }}
           />
-          {props.value}
+          {props.shownText}
         </label>
       )}
     </Field>
@@ -33,16 +33,15 @@ function Checkbox(props) {
 
 const CoverDetailsForm = props => {
   return (
-    
-      <div className="row">
-        <div className="six columns">
-          
-          <Checkbox name="cover" value="admin" />
-          <Checkbox name="cover" value="customer" />
-       
-        </div>
+    <div className="row">
+      <div className="six columns">
+        <Checkbox name="cover" value="fire" shownText="Fire" />
+        <Checkbox name="cover" value="theft" shownText="Theft" />
+        <Checkbox name="cover" value="storm" shownText="Storm" />
+        <Checkbox name="cover" value="wheels" shownText="Wheel" />
+        <Checkbox name="cover" value="windscreen" shownText="Windscreen" />
       </div>
-
+    </div>
   );
 };
 
