@@ -11,13 +11,13 @@ class Review extends React.Component {
 
   }
 
-  componentDidMount(){}
+  
 
   render() {
     return (
       <div className="container">
         Made it!    
-        {this.state.firstname}  
+        {this.props.quoteValues.firstname}  
          
        
       </div>

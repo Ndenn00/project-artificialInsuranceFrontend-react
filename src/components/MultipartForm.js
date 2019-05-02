@@ -122,7 +122,8 @@ const MultipartFormik = withFormik({
   handleSubmit(values, {props}) {
     // const { history } = this.props;
     console.log(values);
-    props.history.push('/review')
+    props.updateQuoteValues(values);
+    props.history.push('/review'); 
 
     return;
   }
