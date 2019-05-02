@@ -81,7 +81,7 @@ const SubmitButton = ({ _prev }) => {
       <div className="row">
         <div className="twelve columns">
           <button onClick={_prev}>Previous</button>
-          <input type="submit" />
+          <input type="submit"  />
         </div>
       </div>
     </div>

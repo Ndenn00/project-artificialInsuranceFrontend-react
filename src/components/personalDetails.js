@@ -17,8 +17,6 @@ const PersonalDetails = props => {
 };
 
 const PersonalDetailsForm = props => {
-
-  
   return (
     <div>
       <div className="row">
@@ -86,10 +84,7 @@ const PersonalDetailsForm = props => {
         <div className="six columns">
           <label for="dob">Date of Birth</label>
           <Field className="u-full-width" type="date" name="dob" />
-          <FormErrors
-            errors={props.errors.dob}
-            touched={props.touched.dob}
-          />
+          <FormErrors errors={props.errors.dob} touched={props.touched.dob} />
         </div>
 
         <div className="six columns">

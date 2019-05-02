@@ -4,14 +4,22 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import MultipartForm from "./components/MultipartForm";
-import Review from "./components/Review"
+import Review from "./components/Review";
 
 import { validationSchema } from "./utility/ValidationSchema";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, withRouter  } from "react-router-dom";
 import { withFormik } from "formik";
+import { compose } from 'recompose'
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = this.props.values;
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -24,7 +32,10 @@ class App extends Component {
               <MultipartForm {...routeProps} {...this.props} />
             )}
           />
-          <Route path="/review" component={Review} exact />
+          <Route
+            path="/review"
+            render={routeProps => <Review {...routeProps} {...this.props} />}
+          />
         </Switch>
       </BrowserRouter>
     );
@@ -83,10 +94,13 @@ const FormikApp = withFormik({
   },
   validationSchema: validationSchema,
 
-  handleSubmit() {
-    
-  }
+  handleSubmit(values, {props}) {
+    const { history } = this.props;
+    console.log(values);
+    history.push('/review')
 
+    return;
+  }
 })(App);
 
 export default FormikApp;
