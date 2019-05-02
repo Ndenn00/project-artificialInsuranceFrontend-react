@@ -17,7 +17,7 @@ const Navbar = props => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/quotepersonaldetails">Quote</NavLink>
+              <NavLink to="/quote">Quote</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>

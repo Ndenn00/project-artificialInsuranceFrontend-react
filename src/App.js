@@ -3,23 +3,13 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import MultipartForm from "./components/MultipartForm";
+import MultipartFormik from "./components/MultipartForm";
 import Review from "./components/Review";
 
-import { validationSchema } from "./utility/ValidationSchema";
-
-import { BrowserRouter, Route, Switch, withRouter  } from "react-router-dom";
-import { withFormik } from "formik";
-import { compose } from 'recompose'
-
+import { BrowserRouter, Route, Switch  } from "react-router-dom";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = this.props.values;
-  }
-
+  
   render() {
     return (
       <BrowserRouter>
@@ -29,7 +19,7 @@ class App extends Component {
           <Route
             path="/quote"
             render={routeProps => (
-              <MultipartForm {...routeProps} {...this.props} />
+              <MultipartFormik {...routeProps} {...this.props} />
             )}
           />
           <Route
@@ -42,65 +32,4 @@ class App extends Component {
   }
 }
 
-const FormikApp = withFormik({
-  mapPropsToValues({
-    firstname,
-    lastname,
-    address,
-    postcode,
-    email,
-    phone,
-    dob,
-    gender,
-    vin,
-    reg,
-    make,
-    model,
-    year,
-    miles,
-    ownOrLease,
-    primaryUse,
-    lengthOfOwnership,
-    licenceNumber,
-    yearsHeld,
-    noClaims,
-    accidentWithinFiveYears,
-    cover
-  }) {
-    return {
-      firstname: firstname || "",
-      lastname: lastname || "",
-      address: address || "",
-      postcode: postcode || "",
-      email: email || "",
-      phone: phone || "",
-      dob: dob || "",
-      gender: gender || "",
-      vin: vin || "",
-      reg: reg || "",
-      make: make || "",
-      model: model || "",
-      year: year || "",
-      miles: miles || "",
-      ownOrLease: ownOrLease || "",
-      primaryUse: primaryUse || "",
-      lengthOfOwnership: lengthOfOwnership || "",
-      licenceNumber: licenceNumber || "",
-      yearsHeld: yearsHeld || "",
-      noClaims: noClaims || "",
-      accidentWithinFiveYears: accidentWithinFiveYears || "",
-      cover: cover || []
-    };
-  },
-  validationSchema: validationSchema,
-
-  handleSubmit(values, {props}) {
-    const { history } = this.props;
-    console.log(values);
-    history.push('/review')
-
-    return;
-  }
-})(App);
-
-export default FormikApp;
+export default App;

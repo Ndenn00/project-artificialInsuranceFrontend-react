@@ -6,7 +6,13 @@ import VehicleDetails from "./VehicleDetails";
 import PreviousInsuranceDetails from "./PreviousInsuranceDetails";
 import CoverDetails from "./CoverDetails";
 
-class MultpartForm extends React.Component {
+import { withFormik } from "formik";
+import {validationSchema} from '../utility/ValidationSchema'
+
+
+
+
+class MultipartForm extends React.Component {
   constructor(props) {
     super(props);
     
@@ -59,6 +65,68 @@ class MultpartForm extends React.Component {
     );
   }
 }
+
+
+const MultipartFormik = withFormik({
+  mapPropsToValues({
+    firstname,
+    lastname,
+    address,
+    postcode,
+    email,
+    phone,
+    dob,
+    gender,
+    vin,
+    reg,
+    make,
+    model,
+    year,
+    miles,
+    ownOrLease,
+    primaryUse,
+    lengthOfOwnership,
+    licenceNumber,
+    yearsHeld,
+    noClaims,
+    accidentWithinFiveYears,
+    cover
+  }) {
+    return {
+      firstname: firstname || "",
+      lastname: lastname || "",
+      address: address || "",
+      postcode: postcode || "",
+      email: email || "",
+      phone: phone || "",
+      dob: dob || "",
+      gender: gender || "",
+      vin: vin || "",
+      reg: reg || "",
+      make: make || "",
+      model: model || "",
+      year: year || "",
+      miles: miles || "",
+      ownOrLease: ownOrLease || "",
+      primaryUse: primaryUse || "",
+      lengthOfOwnership: lengthOfOwnership || "",
+      licenceNumber: licenceNumber || "",
+      yearsHeld: yearsHeld || "",
+      noClaims: noClaims || "",
+      accidentWithinFiveYears: accidentWithinFiveYears || "",
+      cover: cover || []
+    };
+  },
+  validationSchema: validationSchema,
+
+  handleSubmit(values, {props}) {
+    // const { history } = this.props;
+    console.log(values);
+    props.history.push('/review')
+
+    return;
+  }
+})(MultipartForm);
 
 const NavButtons = ({ currentStep, _prev, _next }) => {
   let isAtMin = currentStep !== 1;
@@ -116,4 +184,4 @@ const Step4 = props => {
   return <CoverDetails />;
 };
 
-export default MultpartForm;
+export default MultipartFormik;

@@ -5,7 +5,7 @@ class Review extends React.Component {
     super(props);
     
     this.state = {
-      firstname: this.props.values.firstname
+      
     }
 
 
