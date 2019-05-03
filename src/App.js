@@ -14,8 +14,8 @@ class App extends Component {
     this.state = { quoteValues: {} };
   }
 
-  updateQuoteValues = values => {
-    this.setState({ quoteValues: values });
+  updateCurrentQuote = values => {
+    this.setState({ currentQuote: values });
   };
 
   render() {
@@ -27,7 +27,7 @@ class App extends Component {
           <Route
             path="/quote"
             render={routeProps => (
-              <MultipartFormik {...routeProps} {...this.props} updateQuoteValues={this.updateQuoteValues} />
+              <MultipartFormik {...routeProps} {...this.props} updateCurrentQuote={this.updateCurrentQuote} />
             )}
           />
           <Route
