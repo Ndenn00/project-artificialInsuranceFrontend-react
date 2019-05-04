@@ -1,10 +1,10 @@
 var dateUtility = require("./DateUtil");
 
-export const basePrice = () => {
+exports.basePrice = () => {
   return 400;
 };
 
-export const ageCalculation = (birthDate, basePrice) => {
+exports.ageCalculation = (birthDate, basePrice) => {
   var age = dateUtility.differenceInYears(birthDate);
 
   if (age >= 17 && age <= 25) {
@@ -20,7 +20,7 @@ export const ageCalculation = (birthDate, basePrice) => {
   return 0;
 };
 
-export const drivingExperienceCalculation = (
+exports.drivingExperienceCalculation = (
   drivingExperienceInYears,
   basePrice
 ) => {
@@ -43,14 +43,18 @@ export const drivingExperienceCalculation = (
   return 0;
 };
 
-export const vinCalculation = vinNumber => {
+exports.vinCalculation = vinNumber => {
+  if (vinNumber === null || vinNumber === undefined || vinNumber === "") {
+    return 0;
+  }
+
   if (vinNumber.charAt(vinNumber.length - 1).toUpperCase() === "J") {
     return 50;
   }
   return 0;
 };
 
-export const accidentWithinSixYears = accidentOccured => {
+exports.accidentWithinSixYears = accidentOccured => {
   if (accidentOccured) {
     return 50;
   }

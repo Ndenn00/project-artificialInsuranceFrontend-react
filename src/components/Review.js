@@ -1,9 +1,9 @@
 import React from "react";
 import { generateTotalPrice } from "../utility/PriceUtil";
 
-const quoteOrigin = s  =>{
-  
-}
+// const quoteOrigin = s  =>{
+
+// }
 
 class Review extends React.Component {
   constructor(props) {
@@ -14,9 +14,9 @@ class Review extends React.Component {
     };
 
     if (
-      this.state.currentQuote.firstname == undefined ||
-      this.state.currentQuote.firstname == null ||
-      this.state.currentQuote.firstname == ""
+      this.state.currentQuote.firstname === undefined ||
+      this.state.currentQuote.firstname === null ||
+      this.state.currentQuote.firstname.trim() === ""
     ) {
       alert("No Quote to Review");
       this.props.history.push("/");
