@@ -8,4 +8,4 @@ export const registartionRegexp = /(^[A-Z]{2}[0-9]{2} [A-Z]{3}$)|(^[A-Z][0-9]{1,
 
 export const ukLicenceRegexp = /^^[A-Z9]{5}\d{6}[A-Z9]{2}\d[A-Z]{2}$$/; 
 
-export const selectRegexp = /(^[^0-9])/
+export const selectRegexp = /^([^0-9]+)$/

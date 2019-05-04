@@ -66,5 +66,8 @@ export const validationSchema = Yup.object().shape({
     .min(0, "Not a valid length")
     .max(80, "Not a valid length")
     .required("No Claims years held is required"),
-  gender: Yup.string().required("Gender is required").matches(regex.selectRegexp, "Selection required")
+  gender: Yup.string().required("Selection required").matches(regex.selectRegexp, "Selection required"),
+  primaryUse: Yup.string().required("Selection required").matches(regex.selectRegexp, "Selection required"),
+  accidentWithinFiveYears: Yup.string().required("Selection required").matches(regex.selectRegexp, "Selection required"),
+
 });

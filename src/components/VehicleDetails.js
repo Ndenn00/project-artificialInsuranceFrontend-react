@@ -63,9 +63,14 @@ const VehicleDetailsForm = props => {
         <div className="six columns">
           <label for="primaryUse">Primary Use</label>
           <Field component="select" className="u-full-width" name="primaryUse">
+          <option value="" default >
+              Please Select
+            </option>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </Field>
+          <FormErrors errors={props.errors.primaryUse} touched={props.touched.primaryUse} />
+
         </div>
         <div className="six columns">
           <label for="lengthOfOwnership">Length of Vehicle Ownership</label>

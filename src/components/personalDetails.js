@@ -93,13 +93,14 @@ const PersonalDetailsForm = props => {
             className="u-full-width"
             component="select"
             name="gender">
-            <option value="1" default >
+            <option value="" default >
               Please Select
             </option>
             <option value="Female">Female</option>
             <option value="Male">Male</option>
             <option value="Prefer Not To Say">Prefer not to say</option>
           </Field>
+          <FormErrors errors={props.errors.gender} touched={props.touched.gender} />
         </div>
       </div>
     </div>
