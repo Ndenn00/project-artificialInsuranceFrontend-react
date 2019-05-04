@@ -89,7 +89,13 @@ const PersonalDetailsForm = props => {
 
         <div className="six columns">
           <label for="phone">Gender</label>
-          <Field className="u-full-width" component="select" name="gender">
+          <Field
+            className="u-full-width"
+            component="select"
+            name="gender">
+            <option value="1" default >
+              Please Select
+            </option>
             <option value="Female">Female</option>
             <option value="Male">Male</option>
             <option value="Prefer Not To Say">Prefer not to say</option>

@@ -40,3 +40,7 @@
 .error-text{
 	color:#ff0000; 
 }
+
+.disabled-select{
+	color: #D3D3D3;	
+}

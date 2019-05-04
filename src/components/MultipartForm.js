@@ -100,7 +100,7 @@ const MultipartFormik = withFormik({
       email: email || "",
       phone: phone || "",
       dob: dob || "",
-      gender: gender || "",
+      gender: gender || 1,
       vin: vin || "",
       reg: reg || "",
       make: make || "",

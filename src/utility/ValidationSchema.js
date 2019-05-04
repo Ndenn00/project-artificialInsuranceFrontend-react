@@ -4,7 +4,6 @@ import * as Yup from "yup";
 const maxDate = new Date(new Date().setFullYear(new Date().getFullYear() - 17));
 const currentYear = new Date().getFullYear();
 const minAge = currentYear - 40;
-console.log(minAge);
 
 export const validationSchema = Yup.object().shape({
   firstname: Yup.string()
@@ -40,26 +39,32 @@ export const validationSchema = Yup.object().shape({
   model: Yup.string()
     .min(3, "Not a valid model")
     .required("Model is required"),
-  year: Yup.number().typeError("Has to be a number, obvs")
+  year: Yup.number()
+    .typeError("Has to be a number, obvs")
     .min(minAge, "Not a valid year, too old")
     .max(currentYear, "Not a valid year, that's in the future..")
     .required("Year is required"),
-  miles: Yup.number().typeError("Has to be a number, obvs")
+  miles: Yup.number()
+    .typeError("Has to be a number, obvs")
     .max(500000, "Not a valid milage")
     .required("Mileage is required"),
-  lengthOfOwnership: Yup.number().typeError("Has to be a number, obvs")
+  lengthOfOwnership: Yup.number()
+    .typeError("Has to be a number, obvs")
     .min(0, "Not a valid length of ownership")
     .max(50, "Not a valid length of ownership")
     .required("Length of ownership is required"),
   licenceNumber: Yup.string()
     .matches(regex.ukLicenceRegexp, "Licence not valid")
     .required("Licence Number required"),
-  yearsHeld: Yup.number().typeError("Has to be a number, obvs")
+  yearsHeld: Yup.number()
+    .typeError("Has to be a number, obvs")
     .min(0, "Not a valid length")
     .max(80, "Not a valid length")
     .required("Licence years held is required"),
-  noClaims: Yup.number().typeError("Has to be a number, obvs")
+  noClaims: Yup.number()
+    .typeError("Has to be a number, obvs")
     .min(0, "Not a valid length")
     .max(80, "Not a valid length")
-    .required("No Claims years held is required")
+    .required("No Claims years held is required"),
+  gender: Yup.string().required("Gender is required").matches(regex.selectRegexp, "Selection required")
 });

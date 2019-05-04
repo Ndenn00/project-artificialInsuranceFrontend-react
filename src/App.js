@@ -11,7 +11,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { quoteValues: {} };
+    this.state = { currentQuote: {} };
   }
 
   updateCurrentQuote = values => {
@@ -32,7 +32,7 @@ class App extends Component {
           />
           <Route
             path="/review"
-            render={routeProps => <Review {...routeProps} {...this.props} quoteValues={this.state.quoteValues} />}
+            render={routeProps => <Review {...routeProps} {...this.props} quoteValues={this.state.currentQuote} />}
           />
         </Switch>
       </BrowserRouter>
