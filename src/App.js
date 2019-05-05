@@ -15,7 +15,9 @@ class App extends Component {
   }
 
   updateCurrentQuote = values => {
-    this.setState({ currentQuote: values });
+    let newCurrentQuote = values;
+    newCurrentQuote.method = "Wizard";
+    this.setState({ currentQuote: newCurrentQuote });
   };
 
   render() {
@@ -27,12 +29,22 @@ class App extends Component {
           <Route
             path="/quote"
             render={routeProps => (
-              <MultipartFormik {...routeProps} {...this.props} updateCurrentQuote={this.updateCurrentQuote} />
+              <MultipartFormik
+                {...routeProps}
+                {...this.props}
+                updateCurrentQuote={this.updateCurrentQuote}
+              />
             )}
           />
           <Route
             path="/review"
-            render={routeProps => <Review {...routeProps} {...this.props} currentQuote={this.state.currentQuote} />}
+            render={routeProps => (
+              <Review
+                {...routeProps}
+                {...this.props}
+                currentQuote={this.state.currentQuote}
+              />
+            )}
           />
         </Switch>
       </BrowserRouter>

@@ -1,9 +1,6 @@
 import React from "react";
 import { generateTotalPrice } from "../utility/PriceUtil";
 
-// const quoteOrigin = s  =>{
-
-// }
 
 class Review extends React.Component {
   constructor(props) {
@@ -23,6 +20,27 @@ class Review extends React.Component {
     }
   }
 
+  render() {
+    return (
+      <div className="container">
+        {this.state.currentQuote.method === "Wizard" ? (
+          <WizardQuote {...this.state} />
+        ) : (
+          <ReturningQuote />
+        )}
+      </div>
+    );
+  }
+}
+
+class WizardQuote extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentQuote: this.props.currentQuote
+    };
+  }
+
   componentWillMount() {
     var currentQuote = { ...this.state.currentQuote };
     currentQuote.totalPrice = generateTotalPrice(currentQuote);
@@ -30,13 +48,12 @@ class Review extends React.Component {
   }
 
   render() {
-    return (
-      <div className="container">
-        Made it!
-        {this.state.currentQuote.firstname}
-      </div>
-    );
+    return <div>Hello okay</div>;
   }
+}
+
+class ReturningQuote extends React.Component {
+  constructor(props) {}
 }
 
 export default Review;
